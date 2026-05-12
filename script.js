@@ -121,7 +121,6 @@ setLanguage('en');
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const siteNav = document.querySelector('.site-nav');
 const mobileOverlay = document.querySelector('.mobile-menu-overlay');
-const navLinks = document.querySelectorAll('.site-nav a');
 
 function toggleMenu(open) {
   const isOpen = typeof open === 'boolean' ? open : !siteNav.classList.contains('active');
@@ -129,6 +128,7 @@ function toggleMenu(open) {
   mobileOverlay.classList.toggle('active', isOpen);
   mobileMenuBtn.classList.toggle('active', isOpen);
   mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+  document.querySelector('.site-header').classList.toggle('menu-open', isOpen);
   document.body.style.overflow = isOpen ? 'hidden' : '';
 }
 
