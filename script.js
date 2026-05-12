@@ -163,7 +163,7 @@ window.addEventListener('scroll', () => {
 // Hero parallax effect using CSS transform
 window.addEventListener('scroll', () => {
   const hero = document.querySelector('.hero-section');
-  const offset = -window.scrollY * 0.4;
+  const offset = window.scrollY * 0.5;
   hero.style.setProperty('--hero-parallax', `${offset}px`);
 }, { passive: true });
 
