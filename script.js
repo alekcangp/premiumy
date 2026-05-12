@@ -117,6 +117,49 @@ languageButtons.forEach((button) => {
 
 setLanguage('en');
 
+// Mobile menu toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const siteNav = document.querySelector('.site-nav');
+const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+const navLinks = document.querySelectorAll('.site-nav a');
+
+function toggleMenu(open) {
+  const isOpen = typeof open === 'boolean' ? open : !siteNav.classList.contains('active');
+  siteNav.classList.toggle('active', isOpen);
+  mobileOverlay.classList.toggle('active', isOpen);
+  mobileMenuBtn.classList.toggle('active', isOpen);
+  mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+mobileMenuBtn.addEventListener('click', () => toggleMenu());
+
+mobileOverlay.addEventListener('click', () => toggleMenu(false));
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => toggleMenu(false));
+});
+
+// Close menu on escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && siteNav.classList.contains('active')) {
+    toggleMenu(false);
+  }
+});
+
+// Header scroll effect
+let lastScrollY = 0;
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+  if (currentScrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+  lastScrollY = currentScrollY;
+}, { passive: true });
+
 const observerOptions = {
   root: null,
   rootMargin: '0px 0px -120px 0px',

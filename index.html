@@ -12,21 +12,32 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#home">Premiumy 🌿</a>
-      <nav class="site-nav">
-        <a href="#about" data-text-key="navAbout">About</a>
-        <a href="#gallery" data-text-key="navGallery">Products</a>
-        <a href="#contact" data-text-key="navContact">Contact</a>
-      </nav>
-      <div class="lang-switcher">
-        <button type="button" class="lang-button active" data-lang="en">EN</button>
-        <button type="button" class="lang-button" data-lang="ar">AR</button>
-        <button type="button" class="lang-button" data-lang="ru">RU</button>
-      </div>
-    </div>
-  </header>
+   <header class="site-header">
+     <div class="container header-inner">
+       <a class="brand" href="#home">
+         <span class="brand-icon">🌿</span>
+         <span class="brand-text">Premiumy</span>
+       </a>
+       <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+         <span class="hamburger">
+           <span class="hamburger-line"></span>
+           <span class="hamburger-line"></span>
+           <span class="hamburger-line"></span>
+         </span>
+       </button>
+       <nav class="site-nav">
+         <a href="#about" data-text-key="navAbout">About</a>
+         <a href="#gallery" data-text-key="navGallery">Products</a>
+         <a href="#contact" data-text-key="navContact">Contact</a>
+       </nav>
+       <div class="lang-switcher">
+         <button type="button" class="lang-button active" data-lang="en">EN</button>
+         <button type="button" class="lang-button" data-lang="ar">AR</button>
+         <button type="button" class="lang-button" data-lang="ru">RU</button>
+       </div>
+     </div>
+     <div class="mobile-menu-overlay"></div>
+   </header>
 
   <main>
     <section id="home" class="hero section hero-section">
