@@ -414,40 +414,34 @@ textarea {
      transform: translateY(-7px) rotate(-45deg);
    }
 
-   /* Mobile bottom language bar - hidden by default, shown when menu open */
-   .lang-switcher-desktop {
+   /* Mobile nav: language bar as last item inside panel */
+   .site-nav .lang-switcher-mobile {
      display: none;
-   }
-
-   .lang-switcher-mobile {
-     display: none;
-     position: fixed;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     padding: 0.75rem 1rem;
-     padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
-     background: rgba(255, 255, 255, 0.98);
+     position: static;
+     padding: 1rem;
+     background: rgba(255, 255, 255, 0.95);
      border-top: 1px solid rgba(116, 149, 91, 0.15);
      justify-content: center;
      gap: 0.4rem;
-     z-index: 1000;
-     box-shadow: 0 -4px 20px rgba(17, 36, 11, 0.06);
-     backdrop-filter: blur(12px);
-     -webkit-backdrop-filter: blur(12px);
-     padding-left: max(1rem, env(safe-area-inset-left));
-     padding-right: max(1rem, env(safe-area-inset-right));
+     box-shadow: 0 -3px 15px rgba(17, 36, 11, 0.06);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
    }
 
-   .site-header.menu-open .lang-switcher-mobile {
+   .site-nav.active .lang-switcher-mobile {
      display: flex;
    }
 
    .lang-switcher-mobile .lang-button {
-     padding: 0.45rem 0.75rem;
-     font-size: 0.75rem;
-     min-height: 36px;
-     min-width: 36px;
+     padding: 0.5rem 0.85rem;
+     font-size: 0.8rem;
+     min-height: 40px;
+     min-width: 40px;
+   }
+
+   /* Mobile: hide desktop lang selector */
+   .lang-switcher-desktop {
+     display: none;
    }
 
    /* Section layouts stack */

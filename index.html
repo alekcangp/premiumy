@@ -18,11 +18,17 @@
          <span class="brand-icon">🌿</span>
          <span class="brand-text">Premiumy</span>
        </a>
-       <nav class="site-nav">
-         <a href="#about" data-text-key="navAbout">About</a>
-         <a href="#gallery" data-text-key="navGallery">Products</a>
-         <a href="#contact" data-text-key="navContact">Contact</a>
-       </nav>
+        <nav class="site-nav">
+          <a href="#about" data-text-key="navAbout">About</a>
+          <a href="#gallery" data-text-key="navGallery">Products</a>
+          <a href="#contact" data-text-key="navContact">Contact</a>
+          <!-- Mobile language bar (inside nav panel) -->
+          <div class="lang-switcher-mobile">
+            <button type="button" class="lang-button active" data-lang="en">EN</button>
+            <button type="button" class="lang-button" data-lang="ar">AR</button>
+            <button type="button" class="lang-button" data-lang="ru">RU</button>
+          </div>
+        </nav>
        <!-- Desktop language selector (hidden on mobile) -->
        <div class="lang-switcher-desktop">
          <button type="button" class="lang-button active" data-lang="en">EN</button>
@@ -39,13 +45,6 @@
      </div>
      <div class="mobile-menu-overlay"></div>
    </header>
-
-   <!-- Mobile language bar - fixed to viewport bottom, only visible when menu open -->
-   <div class="lang-switcher-mobile">
-     <button type="button" class="lang-button active" data-lang="en">EN</button>
-     <button type="button" class="lang-button" data-lang="ar">AR</button>
-     <button type="button" class="lang-button" data-lang="ru">RU</button>
-   </div>
 
   <main>
     <section id="home" class="hero section hero-section">
