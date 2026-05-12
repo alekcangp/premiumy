@@ -140,6 +140,7 @@ textarea {
 /* Mobile Menu Button (Hamburger) */
 .mobile-menu-btn {
   display: none;
+  position: relative; /* For z-index */
   padding: 0.5rem;
   background: transparent;
   border: none;
@@ -356,28 +357,28 @@ textarea {
      transform: translateY(-7px) rotate(-45deg);
    }
 
-   /* Lang switcher: hidden by default, fixed bottom when menu open */
-   .lang-switcher {
-     display: none;
-     position: fixed;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     padding: 1rem;
-     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-     background: #fff;
-     border-top: 1px solid rgba(116, 149, 91, 0.12);
-     justify-content: center;
-     z-index: 1000;
-     gap: 0.5rem;
-     padding-left: max(1rem, env(safe-area-inset-left));
-     padding-right: max(1rem, env(safe-area-inset-right));
-   }
+  /* Lang switcher: hidden by default, fixed bottom when menu open */
+  .lang-switcher {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    background: #fff;
+    border-top: 1px solid rgba(116, 149, 91, 0.12);
+    justify-content: center;
+    z-index: 1000;
+    gap: 0.5rem;
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
 
-   /* Show when nav is active */
-   .site-nav.active + .lang-switcher {
-     display: flex;
-   }
+  /* Show lang switcher when menu is open */
+  .site-header.menu-open .lang-switcher {
+    display: flex;
+  }
 
    .lang-button {
      padding: 0.6rem 1rem;
