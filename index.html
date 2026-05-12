@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premiumy | Natural Food in Giza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">Premiumy 🌿</a>
+      <nav class="site-nav">
+        <a href="#about" data-text-key="navAbout">About</a>
+        <a href="#gallery" data-text-key="navGallery">Gallery</a>
+        <a href="#contact" data-text-key="navContact">Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button type="button" class="lang-button active" data-lang="en">EN</button>
+        <button type="button" class="lang-button" data-lang="ar">AR</button>
+        <button type="button" class="lang-button" data-lang="ru">RU</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section hero-section">
+      <div class="section-inner">
+        <span id="hero-eyebrow" data-text-key="heroEyebrow" class="eyebrow">Fresh Flavors in Giza</span>
+        <h1 id="hero-heading" data-text-key="heroHeading">Crafted with love, sourced from tradition.</h1>
+        <p id="hero-text" data-text-key="heroText">Explore our curated selection of wholesome meals, fresh ingredients, and premium dining ideas from the heart of Giza.</p>
+        <div class="hero-actions">
+          <a href="#gallery" class="button button-primary" data-text-key="heroGallery">Browse the Gallery</a>
+          <a href="#contact" class="button button-secondary" data-text-key="heroContact">Find Us</a>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <section id="about" class="section about-section animate">
+      <div class="container section-inner">
+        <div class="about-grid">
+          <div class="text-block">
+            <span id="about-eyebrow" data-text-key="aboutEyebrow" class="eyebrow">About Premiumy</span>
+            <h2 id="about-heading" data-text-key="aboutHeading">Fresh products, crafted with care.</h2>
+            <p id="about-text-1" data-text-key="aboutText1">Premiumy brings premium natural products to the heart of Giza. Every item is prepared with locally sourced ingredients, honest quality, and a passion for excellence.</p>
+            <p id="about-text-2" data-text-key="aboutText2">Our collection celebrates Egyptian taste, seasonal harvests, and premium products that feel both delicious and nourishing.</p>
+          </div>
+          <div class="about-image">
+            <img src="images/about.jpg" alt="Premiumy products" loading="lazy" />
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <strong>500+</strong>
+            <span id="stat-1" data-text-key="stat1">Happy customers</span>
+          </div>
+          <div class="stat-card">
+            <strong>100%</strong>
+            <span id="stat-2" data-text-key="stat2">Fresh ingredients</span>
+          </div>
+          <div class="stat-card">
+            <strong>24/7</strong>
+            <span id="stat-3" data-text-key="stat3">Support via WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery-section animate">
+      <div class="container section-inner">
+        <span id="gallery-eyebrow" data-text-key="galleryEyebrow" class="eyebrow">Gallery</span>
+        <h2 id="gallery-heading" data-text-key="galleryHeading">Premium products and fresh quality.</h2>
+        <div class="gallery-grid">
+          <a data-fancybox="gallery" href="images/gallery/food-1.jpg" class="gallery-item">
+            <img src="images/gallery/food-1.jpg" alt="Product item 1" loading="lazy" />
+            <div class="item-overlay"><span>Zoom</span></div>
+          </a>
+          <a data-fancybox="gallery" href="images/gallery/food-2.jpg" class="gallery-item">
+            <img src="images/gallery/food-2.jpg" alt="Product item 2" loading="lazy" />
+            <div class="item-overlay"><span>Zoom</span></div>
+          </a>
+          <a data-fancybox="gallery" href="images/gallery/food-3.jpg" class="gallery-item">
+            <img src="images/gallery/food-3.jpg" alt="Product item 3" loading="lazy" />
+            <div class="item-overlay"><span>Zoom</span></div>
+          </a>
+          <a data-fancybox="gallery" href="images/gallery/food-4.jpg" class="gallery-item">
+            <img src="images/gallery/food-4.jpg" alt="Product item 4" loading="lazy" />
+            <div class="item-overlay"><span>Zoom</span></div>
+          </a>
+          <a data-fancybox="gallery" href="images/gallery/food-5.jpg" class="gallery-item">
+            <img src="images/gallery/food-5.jpg" alt="Product item 5" loading="lazy" />
+            <div class="item-overlay"><span>Zoom</span></div>
+          </a>
+          <a data-fancybox="gallery" href="images/gallery/food-6.jpg" class="gallery-item">
+            <img src="images/gallery/food-6.jpg" alt="Product item 6" loading="lazy" />
+            <div class="item-overlay"><span>Zoom</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section animate">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <span id="contact-eyebrow" data-text-key="contactEyebrow" class="eyebrow">Visit Premiumy</span>
+          <h2 id="contact-heading" data-text-key="contactHeading">Find our shop in Giza</h2>
+          <p id="contact-text" data-text-key="contactText">شارع مصرف جلال, King Faisal St, Giza Governorate 12555, Egypt</p>
+          <div class="contact-links">
+            <a class="button button-primary" href="https://wa.me/201140302996" target="_blank" rel="noreferrer" data-text-key="whatsapp">Chat on WhatsApp</a>
+            <a class="button button-secondary" href="tel:+201140302996" data-text-key="call">Call +20 11 4030 2996</a>
+          </div>
+          <a class="reviews-link" href="https://maps.app.goo.gl/GD64JboLbqz3dmt66" target="_blank" rel="noreferrer" data-text-key="reviews">View Google Maps profile</a>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.9381789709257!2d31.1305623!3d29.997173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584724f2ce09b5%3A0xa90e3bc3bbff36c2!2zUHJlbWl1bXkg8J-Mvw!5e0!3m2!1sen!2snl!4v1778559949006&zoom=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span id="footer-text" data-text-key="footer">Premiumy 🌿 — natural products in Giza.</span>
+      <a href="#home" data-text-key="footerLink">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

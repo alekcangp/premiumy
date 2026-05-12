@@ -1,0 +1,257 @@
+# Modern Interactive Premiumy Web App — LLM Context
+
+## TL;DR
+Build a minimalist & clean, highly interactive Premiumy web app with smooth 60fps animations. Single-page app: animated hero, interactive gallery with local images & zoom, animated about section, interactive contact area (Google Maps, WhatsApp, phone links). Vanilla JS + CSS animations only.
+
+**Map URL:** https://maps.app.goo.gl/GD64JboLbqz3dmt66
+
+---
+
+## File & Folder Structure
+```
+C:\app\
+├── index.html
+├── llm.txt
+├── css/
+│   ├── globals.css      # CSS variables, typography, resets
+│   ├── sections.css     # Layouts (header, hero, about, gallery, contact, footer)
+│   └── animations.css   # Keyframes, transitions, hover effects
+├── js/
+│   ├── main.js          # Translations object + language switcher
+│   ├── animations.js    # IntersectionObserver scroll triggers + parallax
+│   ├── gallery.js       # Fancybox initialization + hover overlays
+│   └── utils.js         # Helper functions (strings, debounce, etc.)
+└── images/
+    ├── about.jpg
+    └── gallery/
+        ├── food-1.jpg
+        ├── food-2.jpg
+        ├── food-3.jpg
+        ├── food-4.jpg
+        ├── food-5.jpg
+        └── food-6.jpg
+```
+
+---
+
+## Design & Styling
+
+### Color Palette (CSS Variables — defined in globals.css)
+```css
+:root {
+  --bg: #f4f7f1;
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-strong: #ffffff;
+  --text: #17220f;
+  --muted: #5e6a55;
+  --accent: #3f7a2f;
+  --accent-light: #8abb58;
+  --border: rgba(65, 105, 42, 0.12);
+  --shadow: 0 30px 90px rgba(17, 36, 11, 0.08);
+  --font-main: 'Inter', sans-serif;
+}
+```
+
+### Typography
+- Font: **Inter** (Google Fonts: weights 400, 500, 600, 700 — loaded via `<link>`)
+- Smooth, minimal text rendering
+
+### Layout Principles
+- Rounded cards (24–32px radius)
+- Soft box shadows
+- Gradient overlays
+- Backdrop blur on sticky header
+- 1-column mobile, 2-column desktop where natural
+- Max content width ~1140px centered
+
+---
+
+## Translation System (js/main.js)
+
+### Structure
+```js
+const translations = {
+  en: { key: 'English text', ... },
+  ar: { key: 'النص العربي', ... },
+  ru: { key: 'Русский текст', ... }
+};
+```
+
+### HTML Hook
+Every translatable element gets `data-text-key="keyName"`.
+
+Example:
+```html
+<h1 data-text-key="heroHeading">Crafted with love, sourced from tradition.</h1>
+<nav><a data-text-key="navAbout">About</a></nav>
+```
+
+### Language Switcher
+- Buttons: `<button class="lang-button" data-lang="en|ar|ru">`
+- `setLanguage(lang)` function:
+  - Selects all `[data-text-key]` elements and sets `el.textContent = translations[lang][key]`
+  - Sets `document.documentElement.lang = lang`
+  - Sets `document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'`
+  - Updates `.active` class on buttons
+  - Sets `document.title = translations[lang].pageTitle`
+- Call `setLanguage('en')` on DOMContentLoaded
+
+### Required Translation Keys
+```
+pageTitle, navAbout, navGallery, navContact,
+heroEyebrow, heroHeading, heroText, heroGallery, heroContact,
+aboutEyebrow, aboutHeading, aboutText1, aboutText2,
+stat1, stat2, stat3,
+galleryEyebrow, galleryHeading,
+contactEyebrow, contactHeading, contactText, whatsapp, call, reviews,
+footer, footerLink
+```
+
+---
+
+## RTL Support
+- Arabic: set `<html dir="rtl">`
+- CSS selectors: `html[dir="rtl"] .header-inner { direction: rtl; }`
+- Align text-right for: `.about-section`, `.contact-card`, `.footer-inner`
+- Keep layout mirroring via logical properties where possible
+
+---
+
+## Animations & Interactions
+
+### Scroll Animations (js/animations.js)
+- Target elements with class `.animate`
+- Use `IntersectionObserver` with `threshold: 0.15` and `rootMargin: '0px 0px -120px 0px'`
+- When intersecting, add class `.is-visible`
+- Default state: `opacity: 0; transform: translateY(32px); transition: opacity 0.9s ease, transform 0.9s ease`
+- Visible state: `opacity: 1; transform: translateY(0)`
+
+### Staggered Animations
+- About section paragraphs stagger-delay via `style="--delay: 0.1s"` or nth-child
+- Suggested delays: 0.05s, 0.1s, 0.15s
+
+### Counter Animation (stats)
+- Strong elements inside `.stat-card` animate from 0 → final value
+- IntersectionObserver with `threshold: 0.5`
+- Ease-up loop at ~60fps (setInterval 16ms), step = Math.max(1, final / 40)
+- Display format: `finalValue+` (e.g., "500+")
+
+### Parallax / Scroll-linked Hero
+- Listen to `window.scroll` — adjust hero background or image `transform: translateY(scrollY * factor)`
+- Factor ~0.08 for subtle effect — 60fps, `requestAnimationFrame` if needed
+
+### Anchor Scrolling
+- Smooth scroll to target with `behavior: 'smooth'`, `block: 'start'`
+- `preventDefault()` on nav link clicks
+
+### Hover Effects
+- Buttons: `transform: translateY(-2px)` + shadow
+- Gallery items: image scale 1.05–1.1 + overlay fade-in (opacity 0→1)
+- Nav links: color shift to accent color
+
+---
+
+## Interactive Gallery (js/gallery.js)
+- Fancybox via CDN: `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">` + `<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>`
+- HTML for each item:
+```html
+<a data-fancybox="gallery" href="images/gallery/food-1.jpg" class="gallery-item" tabindex="0">
+  <img src="images/gallery/food-1.jpg" alt="Premiumy product 1" loading="lazy">
+  <div class="item-overlay"><span>Zoom</span></div>
+</a>
+```
+- `.gallery-item`: `border-radius: 28px; overflow: hidden; box-shadow`
+- `.gallery-item img`: `transition: transform 0.35s ease; width:100%`
+- Hover: `img` scale → `transform: scale(1.08)`; overlay `opacity: 1`
+- Overlay: absolute inset 0, centered text, dark semi-transparent bg
+- Lazy loading: `loading="lazy"` on `<img>`
+
+---
+
+## Contact Section
+### Elements
+- Google Maps iframe: fill container (no fixed height)
+  - Iframe: `width:100%; height:100%; border:0;`
+  - Container `.map-frame`: `display:flex` so iframe stretches
+- WhatsApp: `href="https://wa.me/201140302996" target="_blank"`
+- Phone: `href="tel:+201140302996"`
+- Reviews: link to `https://maps.app.goo.gl/GD64JboLbqz3dmt66`
+- Address: `شارع مصرف جلال، King Faisal St, Giza Governorate 12555، مصر`
+
+### Map Coordinates (for embed URL if not using your link directly)
+- Lat: 29.997173, Lng: 31.1305623
+- Zoom 16, output=embed
+
+### Hover Effects
+- Buttons: lift on hover
+- Reviews link: accent color, subtle underline
+
+---
+
+## Performance & Best Practices (Phase 6)
+- Defer non-critical JS or place before `</body>`
+- Use `requestAnimationFrame` for scroll handlers
+- CSS `will-change` only where needed
+- `loading="lazy"` on images below fold
+- Minify CSS/JS before deployment
+- Test at 60fps in Chrome DevTools Performance panel
+
+---
+
+## Translations — Content Strings (EN default)
+```js
+pageTitle: 'Premiumy | Natural Products in Giza',
+navAbout: 'About',
+navGallery: 'Gallery',
+navContact: 'Contact',
+heroEyebrow: 'Premium Quality',
+heroHeading: 'Crafted with love, sourced from tradition.',
+heroText: 'Explore our curated selection of premium items, fresh ingredients, and quality products from the heart of Giza.',
+heroGallery: 'Browse the Gallery',
+heroContact: 'Find Us',
+aboutEyebrow: 'About Premiumy',
+aboutHeading: 'Fresh products, crafted with care.',
+aboutText1: 'Premiumy brings premium natural products to the heart of Giza. Every item is prepared with locally sourced ingredients, honest quality, and a passion for excellence.',
+aboutText2: 'Our collection celebrates Egyptian taste, seasonal harvests, and premium products that feel both delicious and nourishing.',
+stat1: 'Happy customers',
+stat2: 'Fresh ingredients',
+stat3: 'Support via WhatsApp',
+galleryEyebrow: 'Gallery',
+galleryHeading: 'Premium products and fresh quality.',
+contactEyebrow: 'Visit Premiumy',
+contactHeading: 'Find our shop in Giza',
+contactText: 'شارع مصرف جلال، King Faisal St, Giza Governorate 12555، مصر',
+whatsapp: 'Chat on WhatsApp',
+call: 'Call +20 11 4030 2996',
+reviews: 'View Google Maps profile',
+footer: 'Premiumy 🌿 — natural products in Giza.',
+footerLink: 'Back to top'
+```
+
+Translation targets:
+- **Arabic (ar)**: Already provided in current script.js — review for consistency with new phrasing
+- **Russian (ru)**: `Создано с любовью, вдохновлено традициями.` for heroHeading; translate remaining keys accordingly
+
+---
+
+## Verification Checklist
+- [ ] Hero background parallax on scroll
+- [ ] Nav links scroll smoothly to sections
+- [ ] Language switcher works instantly (EN/AR/RU), RTL switches for Arabic
+- [ ] About section paragraphs stagger in on scroll
+- [ ] Stats count up when visible
+- [ ] Gallery images load, hover overlay appears, click opens Fancybox
+- [ ] Contact: WhatsApp/phone/Map links working; map fills container
+- [ ] No horizontal overflow on mobile
+- [ ] 60fps animations — smooth even on modest devices
+
+---
+
+## Decisions Locked In
+- Vanilla JS only (no frameworks)
+- Fancybox for gallery (reliable, accessible CDN)
+- No contact form — links only
+- All content in 3 languages, stored in JS object
+- Map: Google Maps embed iframe (not interactive JS API)
+- Images from local `images/gallery/` folder
+- CSS split into 3 files for modularity (globals, sections, animations)
