@@ -23,7 +23,8 @@
          <a href="#gallery" data-text-key="navGallery">Products</a>
          <a href="#contact" data-text-key="navContact">Contact</a>
        </nav>
-       <div class="lang-switcher">
+       <!-- Desktop language selector (hidden on mobile) -->
+       <div class="lang-switcher-desktop">
          <button type="button" class="lang-button active" data-lang="en">EN</button>
          <button type="button" class="lang-button" data-lang="ar">AR</button>
          <button type="button" class="lang-button" data-lang="ru">RU</button>
@@ -37,6 +38,12 @@
        </button>
      </div>
      <div class="mobile-menu-overlay"></div>
+     <!-- Mobile bottom language bar (only visible when menu is open) -->
+     <div class="lang-switcher-mobile">
+       <button type="button" class="lang-button active" data-lang="en">EN</button>
+       <button type="button" class="lang-button" data-lang="ar">AR</button>
+       <button type="button" class="lang-button" data-lang="ru">RU</button>
+     </div>
    </header>
 
   <main>
