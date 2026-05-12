@@ -330,56 +330,63 @@ textarea {
     align-items: center;
     justify-content: center;
     order: 2;
+    min-width: 44px;
+    min-height: 44px;
   }
 
-  /* Show hamburger on mobile */
-  .mobile-menu-btn {
-    display: flex;
+  .mobile-menu-btn:hover .hamburger-line {
+    background: var(--accent);
   }
 
-  /* Hide hamburger lines on mobile? no, show them */
+   /* Show hamburger on mobile */
+   .mobile-menu-btn {
+     display: flex;
+   }
 
-  /* Active hamburger state */
-  .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
+   /* Active hamburger state */
+   .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+     transform: translateY(7px) rotate(45deg);
+   }
 
-  .mobile-menu-btn.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
+   .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+     opacity: 0;
+   }
 
-  .mobile-menu-btn.active .hamburger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
+   .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+     transform: translateY(-7px) rotate(-45deg);
+   }
 
-  /* Lang switcher: hidden by default, fixed bottom when menu open */
-  .lang-switcher {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    background: #fff;
-    border-top: 1px solid rgba(116, 149, 91, 0.12);
-    justify-content: center;
-    z-index: 1000;
-    gap: 0.5rem;
-  }
+   /* Lang switcher: hidden by default, fixed bottom when menu open */
+   .lang-switcher {
+     display: none;
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     padding: 1rem;
+     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+     background: #fff;
+     border-top: 1px solid rgba(116, 149, 91, 0.12);
+     justify-content: center;
+     z-index: 1000;
+     gap: 0.5rem;
+     padding-left: max(1rem, env(safe-area-inset-left));
+     padding-right: max(1rem, env(safe-area-inset-right));
+   }
 
-  /* Show when nav is active */
-  .site-nav.active + .lang-switcher {
-    display: flex;
-  }
+   /* Show when nav is active */
+   .site-nav.active + .lang-switcher {
+     display: flex;
+   }
 
-  .lang-button {
-    padding: 0.55rem 1rem;
-    font-size: 0.85rem;
-    min-height: 40px;
-    min-width: 40px;
-  }
+   .lang-button {
+     padding: 0.6rem 1rem;
+     font-size: 0.85rem;
+     min-height: 44px;
+     min-width: 44px;
+   }
 
-  /* Section layouts stack */
+   /* Section layouts stack */
   .stats-grid,
   .gallery-grid,
   .contact-grid {
