@@ -746,7 +746,10 @@ html[dir="rtl"] .footer-inner {
 .hero-section::before {
   content: '';
   position: absolute;
-  inset: -10%;
+  top: -10vh;
+  left: 0;
+  right: 0;
+  bottom: -10vh;
   background-image: url('images/hero.jpg');
   background-size: cover;
   background-position: center;
