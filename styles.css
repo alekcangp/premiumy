@@ -107,7 +107,48 @@ textarea {
   display: flex;
   gap: 0.35rem;
   flex-wrap: wrap;
-  margin-left: auto; /* Push to right side */
+  margin-left: auto; /* Push to right side of header */
+}
+
+/* Hide desktop lang selector on mobile */
+@media (max-width: 900px) {
+  .lang-switcher-desktop {
+    display: none !important;
+  }
+}
+
+/* Mobile language selector - fixed bottom bar */
+.lang-switcher-mobile {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 1rem;
+  padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid rgba(116, 149, 91, 0.15);
+  justify-content: center;
+  gap: 0.3rem;
+  z-index: 1000;
+  box-shadow: 0 -3px 15px rgba(17, 36, 11, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* Show mobile lang bar when menu is open */
+.site-header.menu-open .lang-switcher-mobile {
+  display: flex;
+}
+
+.lang-switcher-mobile .lang-button {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.7rem;
+  min-height: 32px;
+  min-width: 32px;
+  box-shadow: none;
 }
 
 /* Hide desktop lang selector on mobile */
