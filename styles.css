@@ -441,15 +441,15 @@ textarea {
      transform: translateY(-7px) rotate(-45deg);
    }
 
-  /* Mobile nav: language bar at top of panel */
+  /* Mobile nav: language bar - invisible container, just spacers */
   .site-nav .lang-switcher-mobile {
     display: none;
     position: static;
-    padding: 1rem;
+    padding: 0;
     background: transparent;
     justify-content: center;
     gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0 1rem 0.5rem;
   }
 
 .site-nav.active .lang-switcher-mobile {
