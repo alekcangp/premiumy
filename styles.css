@@ -340,12 +340,7 @@ textarea {
     background: var(--accent);
   }
 
-   /* Show hamburger on mobile */
-   .mobile-menu-btn {
-     display: flex;
-   }
-
-   /* Active hamburger state */
+  /* Active hamburger state */
    .mobile-menu-btn.active .hamburger-line:nth-child(1) {
      transform: translateY(7px) rotate(45deg);
    }
@@ -358,15 +353,14 @@ textarea {
      transform: translateY(-7px) rotate(-45deg);
    }
 
-  /* Lang switcher: hidden by default, fixed bottom when menu open */
+  /* Mobile bottom language bar - hidden by default */
   .lang-switcher {
     display: none;
   }
 
-  /* Show when menu is open */
-  /* Mobile bottom language bar */
-  .lang-switcher {
-    display: none;
+  /* Mobile bottom language bar - shown when menu open */
+  .site-header.menu-open .lang-switcher {
+    display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -383,11 +377,6 @@ textarea {
     -webkit-backdrop-filter: blur(12px);
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));
-  }
-
-  /* Show when menu is open */
-  .site-header.menu-open .lang-switcher {
-    display: flex;
   }
 
   .lang-button {
