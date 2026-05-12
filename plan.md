@@ -68,27 +68,43 @@ Build a clean, highly interactive single-page app with animated hero, interactiv
 
 ---
 
-## Phase 6: Polish & Performance
-- [ ] Test all translations (EN/AR/RU) — verify `data-text-key` coverage
-- [ ] Add RTL rules in `sections.css`: `html[dir="rtl"] .header-inner { direction: rtl; }` etc.
-- [ ] Check mobile responsiveness (≤900px, ≤640px breakpoints)
+## Phase 6: Mobile Optimization & Polish
+- [x] Viewport meta: `viewport-fit=cover` + `theme-color` (index.html)
+- [x] Prevent iOS text zoom: `font-size: 16px` on inputs/buttons
+- [x] Touch targets ≥ 44×44px on buttons, links, lang-switcher
+- [x] Sticky header with backdrop blur, proper z-index
+- [x] Nav horizontal scroll on mobile (`overflow-x: auto`, scrollbar hidden)
+- [x] Gallery: 2-col grid (mobile), 1-col extra-small; items use `aspect-ratio: 1/1`, `object-fit: cover`
+- [x] Contact section stacked, full-width buttons (`min-height: 52px`)
+- [x] Map: `min-height: 300px` mobile, flex-fill iframe
+- [x] Footer: centered stacked layout on mobile
+- [x] Safe area insets support with `env(safe-area-inset-*)`
+- [x] Dynamic viewport: `min-height: 100dvh` for mobile Safari
+- [x] Tap highlight disabled globally (`-webkit-tap-highlight-color: transparent`)
+- [x] Prevent horizontal overflow (`overflow-x: hidden` on html/body)
+- [x] Hero actions column layout on mobile
+- [x] Extra-small breakpoint (≤360px) for reduced font/padding
 - [ ] Verify 60fps scroll animations (Chrome DevTools Performance)
-- [ ] Lazy-load offscreen images (already `loading="lazy"`)
-- [ ] Minify/concatenate CSS & JS for production (optional)
 - [ ] Cross-browser test (Chrome, Firefox, Safari, Edge)
+- [ ] Test touch interactions on real devices
 
 ---
 
 ## Verification Checklist
 - [ ] Hero parallax moves subtly on scroll
 - [ ] Nav links smoothly scroll to sections
-- [ ] Language switcher instantly updates text + toggles RTL
+- [ ] Language switcher works instantly (EN/AR/RU), RTL switches for Arabic
 - [ ] About paragraphs stagger-animate on scroll into view
 - [ ] Stats counter counts up when 50% visible
 - [ ] Gallery: hover shows zoom overlay; click opens Fancybox
-- [ ] Contact: WhatsApp, phone, maps links active; map fully fills container
-- [ ] No horizontal overflow on mobile
+- [ ] Contact: WhatsApp, phone, maps links work; map fully fills container
+- [ ] No horizontal overflow on mobile/tablet/desktop
 - [ ] Animations run at 60fps with no jank
+- [ ] Touch targets ≥ 44px easily tappable on mobile
+- [ ] Nav scrolls horizontally on small screens without layout break
+- [ ] Gallery displays 2×3 grid on mobile, proper aspect ratio
+- [ ] Contact buttons full-width, easy to tap
+- [ ] Map visible and scrollable on mobile (400px+ height)
 
 ---
 

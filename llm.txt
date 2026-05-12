@@ -196,17 +196,34 @@ footer, footerLink
 - Minify CSS/JS before deployment
 - Test at 60fps in Chrome DevTools Performance panel
 
+## Mobile Optimization (Completed)
+- **Viewport:** `viewport-fit=cover` + `theme-color` meta tags (index.html)
+- **iOS fix:** `font-size: 16px` on inputs/buttons to prevent text zoom on focus
+- **Touch targets:** All interactive elements ≥ 44×44px (buttons, links, lang-switcher)
+- **Sticky header:** Fixed position, backdrop blur, proper z-index
+- **Nav mobile:** Horizontal scroll (`overflow-x: auto`) with hidden scrollbar
+- **Gallery mobile:** 2-column grid (mobile), 1-column (≤360px); `aspect-ratio: 1/1`, `object-fit: cover`
+- **Contact mobile:** Stacked layout, full-width buttons (`min-height: 52px`)
+- **Map mobile:** `min-height: 300px` + flex iframe to fill container
+- **Footer mobile:** Centered stacked layout
+- **Safe areas:** `padding-left/right: env(safe-area-inset-*)` for notched phones
+- **Dynamic viewport:** `min-height: 100dvh` for mobile Safari address bar
+- **Tap highlight disabled:** `-webkit-tap-highlight-color: transparent`
+- **No horizontal overflow:** `overflow-x: hidden` on html/body
+- **Hero actions:** Column layout on mobile, full-width buttons
+- **Extra-small breakpoint:** ≤360px — further reduced font sizes and padding
+
 ---
 
-## Translations — Content Strings (EN default)
+## Translations — Content Strings (EN default — current)
 ```js
 pageTitle: 'Premiumy | Natural Products in Giza',
 navAbout: 'About',
 navGallery: 'Gallery',
 navContact: 'Contact',
 heroEyebrow: 'Premium Quality',
-heroHeading: 'Crafted with love, sourced from tradition.',
-heroText: 'Explore our curated selection of premium items, fresh ingredients, and quality products from the heart of Giza.',
+heroHeading: 'Crafted with love, inspired by tradition.',
+heroText: 'Explore a curated selection of premium foods, fresh ingredients, and artisanal products from the heart of Giza.',
 heroGallery: 'Browse the Gallery',
 heroContact: 'Find Us',
 aboutEyebrow: 'About Premiumy',
@@ -229,6 +246,11 @@ footerLink: 'Back to top'
 ```
 
 Translation targets:
+- **Arabic (ar):** `heroHeading: 'مصنوع بحب، مستمد من التقاليد.'`; `heroText: 'اكتشف تشكيلة مختارة من الأطعمة المميزة، والمكونات الطازجة، والمنتجات الحرفية من قلب الجيزة.'`
+- **Russian (ru):** `heroHeading: 'Создано с любовью, вдохновлено традициями.'`; `heroText: 'Откройте для себя коллекцию премиальных продуктов, свежих ингредиентов и традиционных угощений из самого сердца Гизы.'`
+```
+
+Translation targets:
 - **Arabic (ar)**: Already provided in current script.js — review for consistency with new phrasing
 - **Russian (ru)**: `Создано с любовью, вдохновлено традициями.` for heroHeading; translate remaining keys accordingly
 
@@ -236,14 +258,19 @@ Translation targets:
 
 ## Verification Checklist
 - [ ] Hero background parallax on scroll
-- [ ] Nav links scroll smoothly to sections
+- [ ] Nav links smoothly scroll to sections
 - [ ] Language switcher works instantly (EN/AR/RU), RTL switches for Arabic
 - [ ] About section paragraphs stagger in on scroll
 - [ ] Stats count up when visible
-- [ ] Gallery images load, hover overlay appears, click opens Fancybox
-- [ ] Contact: WhatsApp/phone/Map links working; map fills container
-- [ ] No horizontal overflow on mobile
+- [ ] Gallery: images load, hover shows zoom overlay, click opens Fancybox
+- [ ] Contact: WhatsApp/phone/Map links working; map fills container fully
+- [ ] No horizontal overflow on mobile/tablet/desktop
 - [ ] 60fps animations — smooth even on modest devices
+- [ ] Touch targets ≥ 44px easily tappable on mobile
+- [ ] Nav scrolls horizontally on small screens without breaking
+- [ ] Gallery displays proper grid and aspect ratio on mobile
+- [ ] Contact buttons full-width and easy to tap
+- [ ] Map visible with sufficient height (≥300px) on mobile
 
 ---
 
