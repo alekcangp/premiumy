@@ -160,6 +160,13 @@ window.addEventListener('scroll', () => {
   lastScrollY = currentScrollY;
 }, { passive: true });
 
+// Hero parallax effect using CSS transform
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero-section');
+  const offset = -window.scrollY * 0.4;
+  hero.style.setProperty('--hero-parallax', `${offset}px`);
+}, { passive: true });
+
 const observerOptions = {
   root: null,
   rootMargin: '0px 0px -120px 0px',
@@ -187,12 +194,6 @@ navLinks.forEach((link) => {
     if (!target) return;
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-});
-
-window.addEventListener('scroll', () => {
-  const hero = document.querySelector('.hero-section');
-  const offset = window.scrollY * 0.08;
-  hero.style.backgroundPosition = `center ${offset}px`;
 });
 
 const counters = document.querySelectorAll('.stat-card strong');
