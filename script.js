@@ -76,7 +76,7 @@ const translations = {
     stat2: 'Свежие ингредиенты',
     stat3: 'Поддержка через WhatsApp',
     galleryEyebrow: '',
-    galleryHeading: 'Премиальные продукты. Чистое качество.',
+    galleryHeading: 'Премиальные продукты. Безупречное качество.',
     contactEyebrow: 'Посетите Premiumy',
     contactHeading: 'Найдите наш магазин в Гизе',
     contactText: 'شارع مصرف جلال، شارع الملك فيصل، محافظة الجيزة 12555، مصر',
