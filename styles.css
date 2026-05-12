@@ -724,29 +724,47 @@ html[dir="rtl"] .footer-inner {
 
 .hero-section {
   min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport for mobile Safari */
+  min-height: 100dvh;
   display: grid;
   place-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: 60px; /* Space for fixed header */
+  padding-top: 60px;
+  background-color: #1a3a0f;
+  background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
 }
 
 .hero-section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 20% 20%, rgba(63, 122, 47, 0.18), transparent 20%),
-    radial-gradient(circle at 80% 10%, rgba(139, 187, 88, 0.14), transparent 18%),
-    linear-gradient(135deg, rgba(82, 123, 50, 0.12), transparent 60%);
+  background: linear-gradient(135deg, rgba(20, 40, 12, 0.88) 0%, rgba(30, 50, 18, 0.55) 50%, rgba(25, 45, 15, 0.72) 100%);
+  z-index: 1;
   pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(ellipse at 50% 0%, rgba(130, 200, 90, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(70, 140, 50, 0.25) 0%, transparent 40%);
+  mix-blend-mode: screen;
 }
 
 .hero-section .section-inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   text-align: center;
-  max-width: 760px;
+  max-width: 820px;
+  padding: 2rem;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .hero-section .eyebrow {
@@ -755,7 +773,8 @@ html[dir="rtl"] .footer-inner {
   font-size: 0.9rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
 }
 
 .hero-section h1 {
@@ -763,6 +782,8 @@ html[dir="rtl"] .footer-inner {
   font-size: clamp(2.8rem, 5vw, 4.8rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
+  font-weight: 700;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .hero-section p {
@@ -770,7 +791,7 @@ html[dir="rtl"] .footer-inner {
   max-width: 34rem;
   font-size: 1.05rem;
   line-height: 1.85;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .hero-actions {
